@@ -11,6 +11,27 @@ void insertatStart(int new_data) {
    new_node->next = head;
    head = new_node;
 }
+void insertEnd(Node** head, int data)
+{
+
+    Node* new_node = new Node();
+
+    new_node->data = data;
+    new_node->next = NULL;
+    if(*head==NULL)
+    {
+        *head = new_node;
+        cout << new_node->data << " inserted" << endl; 
+        return; 
+    }
+ 
+    struct Node* temp = *head; 
+
+    while(temp->next!=NULL)
+        temp = temp->next;
+    temp->next = new_node;
+    cout << new_node->data << " inserted" << endl;
+}
 void display() {
    struct Node* ptr;
    ptr = head;
